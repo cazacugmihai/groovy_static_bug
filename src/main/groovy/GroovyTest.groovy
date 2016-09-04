@@ -7,7 +7,9 @@ import static org.elasticsearch.index.query.QueryBuilders.rangeQuery
 class GroovyTest {
 
 	static void addHandler(List<QueryBuilder> filters) {
-		filters.add(rangeQuery('test'))
+		filters << rangeQuery('test')
+		// but this one works:
+		// filters << (QueryBuilder) rangeQuery('test')
 	}
 
 	static void main(String[] args) {
